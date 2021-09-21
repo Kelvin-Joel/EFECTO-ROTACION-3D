@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .contenedor {
+        width: 50%;
+        margin-left: auto;
+       margin-right: auto;
+       margin-bottom: 3em;
+       margin-top: -6em;
+      }
+      img {
+        display: block;
+        margin: auto;
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
+      .range {
+        width: 35%;
+        display: block;
+        margin: auto;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contenedor">
+      <img src="" alt="" id="image" />
+    </div>
+    <input type="range" min="1" max="35" id="range" value="1" class="range" />
+
+    <script>
+      const image = document.getElementById("image");
+      const range = document.getElementById("range");
+      const ArrayImg = [];
+
+      for (let index = 1; index < 37; index++) {
+        ArrayImg.push(`./img/img${index}.webp`);
+      }
+     
+      image.setAttribute("src", ArrayImg[1]);
+
+      range.addEventListener("input", (e) => {
+        let value = e.target.value;
+        image.setAttribute("src", ArrayImg[value]);
+      });
+      
+      console.log(ArrayImg);
+    </script>
+  </body>
+</html>
